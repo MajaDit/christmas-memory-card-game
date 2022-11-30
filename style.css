@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1e792c;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  visibility: hidden;
+}
+
+h1.active {
+  visibility: visible;
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+  margin: 0 auto;
+  width: auto;
+}
+
+.memory-game {
+  display: grid;
+  margin-top: -3rem;
+  grid-template-columns: repeat(4, 8rem);
+  grid-template-rows: repeat(4, 8rem);
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  gap: 0.3rem;
+}
+
+.memory-game.active {
+  margin-top: -2rem;
+}
+.memory-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+.front-face,
+.back-face {
+  margin-top: -2.5rem;
+  border: 2px solid black;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+@media only screen and (max-width: 600px) {
+  .memory-game {
+    grid-template-columns: repeat(4, 4rem) !important;
+
+    grid-template-rows: repeat(4, 4rem) !important;
+
+    margin-top: 4rem !important;
+  }
+}
